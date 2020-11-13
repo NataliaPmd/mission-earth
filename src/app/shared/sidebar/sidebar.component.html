@@ -26,7 +26,14 @@
                             {{item.childMenu.length}}
                         </span></span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li *ngFor="let subItem of item.childMenu"><a [routerLink]="subItem.url">{{subItem.title}} </a></li>
+                        <li *ngFor="let subItem of item.childMenu">
+                            <a [routerLink]="subItem.url"
+                                routerLinkActive="active"
+                                [routerLinkActiveOptions]="{exact:true}"
+                            >{{subItem.title}} 
+
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 
