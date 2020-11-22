@@ -14,5 +14,9 @@
     align-items: center;
     display: flex;
     text-align: center;
+    
     justify-content: center;
+}
+.avatar {
+    height: 200px; 
 }
