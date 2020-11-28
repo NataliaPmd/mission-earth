@@ -20,6 +20,7 @@ import { UsersComponent } from './users/users.component';
 import { CentersComponent } from './centers/centers.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { ProjectComponent } from './projects/project.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { PipesModule } from '../pipes/pipes.module';
     UsersComponent,
     CentersComponent,
     ProjectsComponent,
+    ProjectComponent,
   ],
   exports: [
     ProgressComponent,

@@ -1,6 +1,6 @@
 /*
-    Medicos
-    ruta: '/api/medico'
+    Proyectos
+    ruta: '/api/project'
 */
 const { Router } = require('express');
 const { check } = require('express-validator');
@@ -9,16 +9,16 @@ const { validarCampos } = require('../middlewares/validar-campos');
 const { validarJWT } = require('../middlewares/validar-jwt');
 
 const {
-    getMedicos,
-    crearMedico,
-    actualizarMedico,
-    borrarMedico
-} = require('../controllers/medicos')
+    getProjects,
+    crearProject,
+    actualizarProject,
+    borrarProject
+} = require('../controllers/projects')
 
 
 const router = Router();
 
-router.get( '/', getMedicos );
+router.get( '/', getProjects );
 
 router.post( '/',
     [
@@ -27,7 +27,7 @@ router.post( '/',
         check('center','El center id debe de ser válido').isMongoId(),
         validarCampos
     ], 
-    crearMedico 
+    crearProject 
 );
 
 router.put( '/:id',
@@ -37,11 +37,11 @@ router.put( '/:id',
         check('center','El center id debe de ser válido').isMongoId(),
         validarCampos
     ],
-    actualizarMedico
+    actualizarProject
 );
 
 router.delete( '/:id',
-    borrarMedico
+    borrarProject
 );
 
 

@@ -1,24 +1,24 @@
 const { response } = require('express');
 
-const Medico = require('../models/medico');
+const Project = require('../models/project');
 
-const getMedicos = async(req, res = response) => {
+const getProjects = async(req, res = response) => {
 
-    const medicos = await Medico.find()
+    const projects = await Project.find()
                                 .populate('usuario','nombre img')
                                 .populate('center','name img')
 
 
     res.json({
         ok: true,
-        medicos
+        projects
     })
 }
 
-const crearMedico = async (req, res = response) => {
+const crearProject = async (req, res = response) => {
 
     const uid = req.uid;
-    const medico = new Medico({
+    const project = new Project({
         usuario: uid,
         ...req.body
     });
@@ -26,12 +26,12 @@ const crearMedico = async (req, res = response) => {
 
     try {
 
-        const medicoDB = await medico.save();
+        const projectDB = await project.save();
 
         
         res.json({
             ok: true,
-            medico: medicoDB
+            project: projectDB
         })
 
     } catch (error) {
@@ -45,33 +45,33 @@ const crearMedico = async (req, res = response) => {
 
 }
 
-const actualizarMedico = async(req, res = response) => {
+const actualizarProject = async(req, res = response) => {
     
     const id  = req.params.id;
     const uid = req.uid;
 
     try {
         
-        const medico = await Medico.findById( id );
+        const project = await Project.findById( id );
 
-        if ( !medico ) {
+        if ( !project ) {
             return res.status(404).json({
                 ok: true,
-                msg: 'Medico no encontrado por id',
+                msg: 'Project no encontrado por id',
             });
         }
 
-        const cambiosMedico = {
+        const cambiosProject = {
             ...req.body,
             usuario: uid
         }
 
-        const medicoActualizado = await Medico.findByIdAndUpdate( id, cambiosMedico, { new: true } );
+        const projectActualizado = await Project.findByIdAndUpdate( id, cambiosProject, { new: true } );
 
 
         res.json({
             ok: true,
-            medico: medicoActualizado
+            project: projectActualizado
         })
 
     } catch (error) {
@@ -86,22 +86,22 @@ const actualizarMedico = async(req, res = response) => {
 
 }
 
-const borrarMedico = async (req, res = response) => {
+const borrarProject = async (req, res = response) => {
    
     const id  = req.params.id;
 
     try {
         
-        const medico = await Medico.findById( id );
+        const project = await Project.findById( id );
 
-        if ( !medico ) {
+        if ( !project ) {
             return res.status(404).json({
                 ok: true,
-                msg: 'Medico no encontrado por id',
+                msg: 'Project no encontrado por id',
             });
         }
 
-        await Medico.findByIdAndDelete( id );
+        await Project.findByIdAndDelete( id );
 
         res.json({
             ok: true,
@@ -123,8 +123,8 @@ const borrarMedico = async (req, res = response) => {
 
 
 module.exports = {
-    getMedicos,
-    crearMedico,
-    actualizarMedico,
-    borrarMedico
+    getProjects,
+    crearProject,
+    actualizarProject,
+    borrarProject
 }

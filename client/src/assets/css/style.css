@@ -1,50 +1,4 @@
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/**
- * Table Of Content
- *
- * 	1. Globals
- *	2. Headers
- *	3. Navigations
- *	4. Banners
- *	5. Footers
- *	6. app
- *	7. Widgets
- *	8. Custom Templates
- */
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/**
- * Table Of Content
- *
- *  1. Globals
- *  2. Headers
- *  3. Navigations
- *  4. Banners
- *  5. Footers
- *  6. Posts
- *  7. Widgets
- *  8. Custom Templates
- */
+
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
 /******************* 
 Global Styles 
@@ -743,15 +697,6 @@ Layouts
   max-width: 1170px;
   margin: 0 auto; }
 
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*******************
-Main sidebar
-******************/
 .left-sidebar {
   position: absolute;
   width: 240px;
@@ -957,26 +902,6 @@ When click on sidebar toggler and also for tablet
   .mini-sidebar.show-sidebar .sidebar-footer {
     left: 0px; } }
 
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*============================================================== 
- For all pages 
- ============================================================== */
 #main-wrapper {
   width: 100%;
   overflow: hidden; }
@@ -1775,26 +1700,7 @@ Notification page Jquery toaster
   background-color: #ffb22b;
   color: #ffffff; }
 
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*******************
-Pagination
-*******************/
+
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
   border-bottom-left-radius: 4px;
@@ -1867,26 +1773,7 @@ Pagination
   background: #e9edf2;
   color: rgba(120, 130, 140, 0.13); }
 
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*******************
-Buttons
-******************/
+
 .btn {
   padding: 7px 12px;
   cursor: pointer; }
@@ -2516,26 +2403,6 @@ Buttons
 .btn.active .text {
   display: none; }
 
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*******************
-Custom-select
-******************/
 .custom-select {
   background: url(../../assets/images/custom-select.png) right 0.75rem center no-repeat; }
 
@@ -3990,26 +3857,7 @@ input[type=checkbox]:not(:disabled).tabbed:focus ~ .lever::after {
 .validate .form-control {
   border-color: #06d79c; }
 
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/*******************
-Table Cell
-*******************/
+
 .table-box {
   display: table;
   width: 100%; }
@@ -4494,24 +4342,6 @@ Table-Jsgrid table
 .jsgrid-pager-page.jsgrid-pager-current-page {
   padding: 0.5em 1em !important; }
 
-/*
-Template Name: Admin pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: scss
-*/
-/*Theme Colors*/
-/*bootstrap Color*/
-/*Light colors*/
-/*Normal Color*/
-/*Extra Variable*/
-/* perfect-scrollbar v0.7.1 */
 .ps {
   -ms-touch-action: auto;
   touch-action: auto;

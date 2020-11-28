@@ -7,10 +7,10 @@ interface _User {
 }
 
 
-export class Medico {
+export class Project {
 
     constructor(
-        public nombre: string,
+        public name: string,
         public _id?: string,
         public img?: string,
         public usuario?: _User,

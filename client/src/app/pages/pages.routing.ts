@@ -12,6 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsersComponent } from './users/users.component';
 import { CentersComponent } from './centers/centers.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { ProjectComponent } from './projects/project.component';
 
 const routes: Routes = [
     { 
@@ -28,7 +29,8 @@ const routes: Routes = [
           { path: 'profile', component: ProfileComponent, data: {title: "Perfil de usuario"} },
           { path: 'users', component: UsersComponent, data: {title: "Gestión de usuarios"} },
           { path: 'centers', component: CentersComponent, data: {title: "Gestión de centros"} },
-          { path: 'projects', component: ProjectsComponent, data: {title: "Gestión de proyectos"} }
+          { path: 'projects', component: ProjectsComponent, data: {title: "Gestión de proyectos"} },
+          { path: 'project/:id', component: ProjectComponent, data: {title: "Gestión de proyectos"} }
         ]
     }
 ];

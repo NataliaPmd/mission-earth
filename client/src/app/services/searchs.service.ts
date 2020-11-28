@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 import { Center } from '../models/center.model';
+import { Project } from '../models/project.model';
 
 const base_url = environment.base_url;
 
@@ -26,7 +27,7 @@ export class SearchsService {
      }
     }
   }
-  search(tipo: 'usuarios' | 'medicos' | 'centers', termino: string) {
+  search(tipo: 'usuarios' | 'projects' | 'centers', termino: string) {
     const url = `${base_url}/todo/coleccion/${tipo}/${termino}`
     return this.http.get<any[]>(url, this.headers)
       .pipe(
@@ -38,6 +39,9 @@ export class SearchsService {
             case "centers":
               return this.transformCenter(resp.resultados)
               break;
+              case "projects":
+                return this.transformProject(resp.resultados)
+                break;
           
             default:
               break;
@@ -56,6 +60,11 @@ export class SearchsService {
   private transformCenter(results: any []): Center[] {
     return results.map(
       center => new Center(center.name, center._id, center.img, center.usuario)
+    )
+  }
+  private transformProject(results: any []): Project[] {
+    return results.map(
+      project => new Center(project.name, project._id, project.img, project.usuario)
     )
   }
 }
