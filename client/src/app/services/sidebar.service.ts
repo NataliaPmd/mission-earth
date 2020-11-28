@@ -18,6 +18,16 @@ export class SidebarService {
 
 
     ]
-  }];
+  },
+  {
+    title: "Admin panel",
+    icon: "mdi mdi-folder-lock-open",
+    childMenu: [
+      {title: "Usuarios", url: "users"},
+      {title: "Centros", url: "centers"},
+      {title: "Proyectos", url: "projects"}
+    ]
+  }
+];
   constructor() { }
 }

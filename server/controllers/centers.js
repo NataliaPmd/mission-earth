@@ -1,35 +1,35 @@
 const { response } = require('express');
 
-const Hospital = require('../models/hospital');
+const Center = require('../models/center');
 
 
-const getHospitales = async(req, res = response) => {
+const getCenters = async(req, res = response) => {
 
-    const hospitales = await Hospital.find()
-                                    .populate('usuario','nombre img');
+    const centers = await Center.find()
+                                    .populate('usuario','name img');
 
     res.json({
         ok: true,
-        hospitales
+        centers
     })
 }
 
-const crearHospital = async(req, res = response) => {
+const createCenter = async(req, res = response) => {
 
     const uid = req.uid;
-    const hospital = new Hospital({ 
+    const center = new Center({ 
         usuario: uid,
         ...req.body 
     });
 
     try {
         
-        const hospitalDB = await hospital.save();
+        const centerDB = await center.save();
         
 
         res.json({
             ok: true,
-            hospital: hospitalDB
+            center: centerDB
         });
 
     } catch (error) {
@@ -44,33 +44,33 @@ const crearHospital = async(req, res = response) => {
 
 }
 
-const actualizarHospital = async (req, res = response) => {
+const updateCenter = async (req, res = response) => {
 
     const id  = req.params.id;
     const uid = req.uid;
 
     try {
         
-        const hospital = await Hospital.findById( id );
+        const center = await Center.findById( id );
 
-        if ( !hospital ) {
+        if ( !center ) {
             return res.status(404).json({
                 ok: true,
-                msg: 'Hospital no encontrado por id',
+                msg: 'centro no encontrado por id',
             });
         }
 
-        const cambiosHospital = {
+        const centerChanges = {
             ...req.body,
             usuario: uid
         }
 
-        const hospitalActualizado = await Hospital.findByIdAndUpdate( id, cambiosHospital, { new: true } );
+        const updatedCenter = await Center.findByIdAndUpdate( id, centerChanges, { new: true } );
 
 
         res.json({
             ok: true,
-            hospital: hospitalActualizado
+            center: updatedCenter
         })
 
     } catch (error) {
@@ -86,27 +86,27 @@ const actualizarHospital = async (req, res = response) => {
 
 }
 
-const borrarHospital = async(req, res = response) => {
+const deleteCenter = async(req, res = response) => {
 
     const id  = req.params.id;
 
     try {
         
-        const hospital = await Hospital.findById( id );
+        const center = await Center.findById( id );
 
-        if ( !hospital ) {
+        if ( !center ) {
             return res.status(404).json({
                 ok: true,
-                msg: 'Hospital no encontrado por id',
+                msg: 'Centro no encontrado por id',
             });
         }
 
-        await Hospital.findByIdAndDelete( id );
+        await Center.findByIdAndDelete( id );
 
 
         res.json({
             ok: true,
-            msg: 'Hospital eliminado'
+            msg: 'Centro eliminado'
         });
 
     } catch (error) {
@@ -123,8 +123,8 @@ const borrarHospital = async(req, res = response) => {
 
 
 module.exports = {
-    getHospitales,
-    crearHospital,
-    actualizarHospital,
-    borrarHospital
+    getCenters,
+    createCenter,
+    updateCenter,
+    deleteCenter
 }

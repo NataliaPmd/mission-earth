@@ -23,6 +23,13 @@ export class UsersService {
    get token() {
      return localStorage.getItem('token') || '';
    }
+   get headers(){
+     return {
+      headers: {
+        'x-token': this.token
+      }
+     }
+   }
    get uid() {
     return this.user.uid || '';
   }
@@ -52,15 +59,14 @@ export class UsersService {
     )
   }
   updateUser(data: {email:string, name:string, role:string}) {
-    data = {
+    var data = {
       ...data,
       role: this.user.role
     }
-    return this.http.put(`${base_url}/usuarios/${this.uid}`, data, {
-      headers: {
-        'x-token': this.token
-      }
-    })
+    return this.http.put(`${base_url}/usuarios/${this.uid}`, data, this.headers)
+  }
+  saveUser(user: User) {
+    return this.http.put(`${base_url}/usuarios/${user.uid}`, user, this.headers)
   }
   login(formData: LoginForm) {
     return this.http.post(`${base_url}/login`, formData)
@@ -94,5 +100,23 @@ export class UsersService {
                     localStorage.setItem('token', response.token)
                   })
                 )
+  }
+  listUsers(init: number=0) {
+    const url = `${base_url}/usuarios?desde=${init}`
+    return this.http.get<{total: number, usuarios:User[]}>(url, this.headers)
+      .pipe(
+        map(resp => {
+          const users = resp.usuarios.map(
+            user => new User(user.nombre, user.email, '', user.img, user.google, user.role, user.uid)
+          )
+          return {
+            total: resp.total,
+            usuarios: users}
+        })
+      )
+  }
+  delete(user: User) {
+    const url = `${base_url}/usuarios/${user.uid}`
+    return this.http.delete(url, this.headers)
   }
 }

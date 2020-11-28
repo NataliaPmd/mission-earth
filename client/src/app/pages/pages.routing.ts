@@ -9,6 +9,9 @@ import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { CentersComponent } from './centers/centers.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 const routes: Routes = [
     { 
@@ -22,7 +25,10 @@ const routes: Routes = [
           { path: 'account-settings', component: AccountSettingsComponent, data: {title: "account settings"} },
           { path: 'promises', component: PromisesComponent, data: {title: "promises"} },
           { path: 'rxjs', component: RxjsComponent, data: {title: "rxjs"} },
-          { path: 'profile', component: ProfileComponent, data: {title: "Perfil de usuario"} }
+          { path: 'profile', component: ProfileComponent, data: {title: "Perfil de usuario"} },
+          { path: 'users', component: UsersComponent, data: {title: "Gestión de usuarios"} },
+          { path: 'centers', component: CentersComponent, data: {title: "Gestión de centros"} },
+          { path: 'projects', component: ProjectsComponent, data: {title: "Gestión de proyectos"} }
         ]
     }
 ];

@@ -20,3 +20,23 @@
 .avatar {
     height: 200px; 
 }
+.avatar-xs {
+    height: 30px; 
+    border-radius: 100%;
+    border: 1px solid grey;
+}
+.background-modal {
+    background-color: rgba(0, 0, 0, 0.4);
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 9999;
+}
+.hidden {
+    display: none;
+}
+.w100 {
+    width: 100px;
+}

@@ -24,7 +24,7 @@ router.post( '/',
     [
         validarJWT,
         check('nombre','El nombre del médico es necesario').not().isEmpty(),
-        check('hospital','El hospital id debe de ser válido').isMongoId(),
+        check('center','El center id debe de ser válido').isMongoId(),
         validarCampos
     ], 
     crearMedico 
@@ -34,7 +34,7 @@ router.put( '/:id',
     [
         validarJWT,
         check('nombre','El nombre del médico es necesario').not().isEmpty(),
-        check('hospital','El hospital id debe de ser válido').isMongoId(),
+        check('center','El center id debe de ser válido').isMongoId(),
         validarCampos
     ],
     actualizarMedico

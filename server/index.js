@@ -23,7 +23,7 @@ app.use( express.static('public') );
 
 // Rutas
 app.use( '/api/usuarios', require('./routes/usuarios') );
-app.use( '/api/hospitales', require('./routes/hospitales') );
+app.use( '/api/centers', require('./routes/centers') );
 app.use( '/api/medicos', require('./routes/medicos') );
 app.use( '/api/todo', require('./routes/busquedas') );
 app.use( '/api/login', require('./routes/auth') );

@@ -16,6 +16,10 @@ import { PromisesComponent } from './promises/promises.component';
 import { PagesComponent } from './pages.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsersComponent } from './users/users.component';
+import { CentersComponent } from './centers/centers.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
@@ -28,6 +32,9 @@ import { ProfileComponent } from './profile/profile.component';
     PromisesComponent,
     RxjsComponent,
     ProfileComponent,
+    UsersComponent,
+    CentersComponent,
+    ProjectsComponent,
   ],
   exports: [
     ProgressComponent,
@@ -44,7 +51,8 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     SharedModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

@@ -11,16 +11,10 @@ const initFunctions = () => {
         });
         //header and sidebar
         var set = function() {
-            var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
             var topOffset = 0;
-            if (width < 1170) {
-                $("body").addClass("mini-sidebar");
-                $('.navbar-brand span').hide();
-                $(".sidebartoggler i").addClass("ti-menu");
-            } else {
-                $("body").removeClass("mini-sidebar");
-                $('.navbar-brand span').show();
-            }
+            $("body").addClass("mini-sidebar");
+            $(".sidebartoggler i").addClass("ti-menu");
+            $('.navbar-brand span').hide();
     
             var height = ((window.innerHeight > 0) ? window.innerHeight : this.screen.height) - 1;
             height = height - topOffset;
@@ -34,17 +28,17 @@ const initFunctions = () => {
         $(window).on("resize", set);
     
         //theme    
-        $(".sidebartoggler").on('click', function() {
-            if ($("body").hasClass("mini-sidebar")) {
+        $(".sidebartoggler, .left-sidebar, .navbar-header").on({
+            mouseenter: function () {
                 $("body").trigger("resize");
                 $("body").removeClass("mini-sidebar");
                 $('.navbar-brand span').show();
-                
-            } else {
+                $('.logo').hide();            },
+            mouseleave: function () {
                 $("body").trigger("resize");
                 $("body").addClass("mini-sidebar");
                 $('.navbar-brand span').hide();
-                
+                $('.logo').show();            
             }
         });
     
