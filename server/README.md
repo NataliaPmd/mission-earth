@@ -1,6 +1,6 @@
-# AdminPro - Backend
+# Mission earth - Backend
 
-Recuerden ejecutar 
+ejecutar 
 
 ```
 npm install

@@ -56,7 +56,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         });
   }
 
-  abrirModal(project: Project) {
+  openModal(project: Project) {
 
     this.modalImgService.openModal( 'projects', project._id, project.img );
 

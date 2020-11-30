@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title">Proyecto</h4>
+                <h6 class="card-subtitle">Actualizar información</h6>
+
+                <form class="form-horizontal p-t-20"
+                        [formGroup]="projectForm"
+                        (submit)="saveProject()">
+
+                    <div class="form-group row">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Foto</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <img [src]="projectSelected? projectSelected.img : 'no-image' | image: 'projects'" 
+                                     class="w200"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="ti-user"></i></div>
+                                <input type="text" 
+                                        formControlName="name"
+                                        class="form-control" 
+                                        id="exampleInputuname3" 
+                                        placeholder="Nombre del proyecto">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="exampleInputEmail3" class="col-sm-3 control-label">Centro</label>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <select class="form-control"
+                                        formControlName="center">
+                                    <option value="">Seleccione centro</option>
+                                    <option *ngFor="let center of centers"
+                                        [value]="center._id">
+                                        {{ center.name }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row m-b-0">
+                        <div class="offset-sm-3 col-sm-9">
+                            <button type="submit"
+                                    [disabled]="projectForm.invalid"
+                                    class="btn btn-success waves-effect waves-light">
+                                <i class="fa fa-save"></i>
+                                Guardar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col animated fadeIn fast"  
+        *ngIf="centerSelected">
+        <div class="card">
+            <div class="card-body">
+                
+                <h4 class="card-title">Centro</h4>
+                <h6 class="card-subtitle">{{ centerSelected.name }}</h6>
+
+                <img [src]="centerSelected.img | image:'centers'" 
+                    class="img-thumbnail"/>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

@@ -14,7 +14,8 @@ export class Project {
         public _id?: string,
         public img?: string,
         public usuario?: _User,
-        public center?: Center
+        public center?: Center,
+        public score?: Number
     ) {}
 
 }

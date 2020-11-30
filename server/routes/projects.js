@@ -12,7 +12,9 @@ const {
     getProjects,
     crearProject,
     actualizarProject,
-    borrarProject
+    borrarProject,
+    getProjectById,
+    getProjectsByCenter
 } = require('../controllers/projects')
 
 
@@ -20,10 +22,12 @@ const router = Router();
 
 router.get( '/', getProjects );
 
+router.get('/byCenter', getProjectsByCenter);
+
 router.post( '/',
     [
         validarJWT,
-        check('nombre','El nombre del médico es necesario').not().isEmpty(),
+        check('name','El nombre del proyecto es necesario').not().isEmpty(),
         check('center','El center id debe de ser válido').isMongoId(),
         validarCampos
     ], 
@@ -33,7 +37,7 @@ router.post( '/',
 router.put( '/:id',
     [
         validarJWT,
-        check('nombre','El nombre del médico es necesario').not().isEmpty(),
+        check('name','El nombre del proyecto es necesario').not().isEmpty(),
         check('center','El center id debe de ser válido').isMongoId(),
         validarCampos
     ],
@@ -42,6 +46,11 @@ router.put( '/:id',
 
 router.delete( '/:id',
     borrarProject
+);
+
+router.get( '/:id',
+    validarJWT,
+    getProjectById
 );
 
 

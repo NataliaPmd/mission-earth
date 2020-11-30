@@ -1,6 +1,8 @@
 const { response } = require('express');
 
 const Project = require('../models/project');
+const Center = require('../models/center');
+
 
 const getProjects = async(req, res = response) => {
 
@@ -86,6 +88,37 @@ const actualizarProject = async(req, res = response) => {
 
 }
 
+const getProjectById = async(req, res = response) => {
+    const id  = req.params.id;
+    try {
+        
+        const project = await Project.findById( id )
+                            .populate('usuario','nombre img')
+                            .populate('center','name img');
+
+        if ( !project ) {
+            return res.status(404).json({
+                ok: true,
+                msg: 'Project no encontrado por id',
+            });
+        }
+        res.json({
+            ok: true,
+            project: project
+        }); 
+
+    } catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
+
+}
+
 const borrarProject = async (req, res = response) => {
    
     const id  = req.params.id;
@@ -120,11 +153,37 @@ const borrarProject = async (req, res = response) => {
 
 }
 
+const getProjectsByCenter = async (req, res = response) => {
+    const projects = [];
+    const centers = await Center.find();
+    for (const center of centers) {
+        const projectsByCenter = await getFirstProjectsByCenter(center._id);
+        const centerProjects = {
+            center: center,
+            projects: projectsByCenter
+        }
+        projects.push(centerProjects);
+    };
+    res.json({
+        ok: true,
+        projects
+    })
+}
 
+const getFirstProjectsByCenter = async (centerId) => {
+    const projects = await Project.aggregate([
+        {$match : { center : centerId } },
+        {$sort: {score: -1}},
+        {$limit : 4 }
+     ]);
+     return projects;
+}
 
 module.exports = {
     getProjects,
     crearProject,
     actualizarProject,
-    borrarProject
+    borrarProject,
+    getProjectById,
+    getProjectsByCenter,
 }

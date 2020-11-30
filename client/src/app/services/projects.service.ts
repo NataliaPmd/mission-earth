@@ -44,6 +44,14 @@ export class ProjectsService {
               );
   }
 
+  getProjectsByCenter() {
+    const url = `${ base_url }/projects/byCenter`;
+    return this.http.get( url, this.headers )
+              .pipe(
+                map( (resp: {ok: boolean, projects: any[] }) => resp.projects )
+              );
+  }
+
   createProject( project: { name: string, center: string } ) {
 
     const url = `${ base_url }/projects`;
@@ -51,7 +59,6 @@ export class ProjectsService {
   }
   
   updateProject( project: Project  ) {
-
     const url = `${ base_url }/projects/${ project._id }`;
     return this.http.put( url, project, this.headers );
   }

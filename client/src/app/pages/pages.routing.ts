@@ -13,6 +13,8 @@ import { UsersComponent } from './users/users.component';
 import { CentersComponent } from './centers/centers.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ProjectComponent } from './projects/project.component';
+import { SearchComponent } from './search/search.component';
+import { AdminGuard } from '../guards/admin.guard';
 
 const routes: Routes = [
     { 
@@ -24,14 +26,14 @@ const routes: Routes = [
           { path: 'progress', component: ProgressComponent, data: {title: "progress"} },
           { path: 'grafica1', component: Grafica1Component, data: {title: "grafica"} },
           { path: 'account-settings', component: AccountSettingsComponent, data: {title: "account settings"} },
+          { path: 'search/:termino', component: SearchComponent, data: {title: "Resultados de busqueda"} },
           { path: 'promises', component: PromisesComponent, data: {title: "promises"} },
           { path: 'rxjs', component: RxjsComponent, data: {title: "rxjs"} },
           { path: 'profile', component: ProfileComponent, data: {title: "Perfil de usuario"} },
-          { path: 'users', component: UsersComponent, data: {title: "Gestión de usuarios"} },
-          { path: 'centers', component: CentersComponent, data: {title: "Gestión de centros"} },
+          { path: 'users', canActivate: [AdminGuard], component: UsersComponent, data: {title: "Gestión de usuarios"} },
+          { path: 'centers', canActivate: [AdminGuard], component: CentersComponent, data: {title: "Gestión de centros"} },
           { path: 'projects', component: ProjectsComponent, data: {title: "Gestión de proyectos"} },
-          { path: 'project/:id', component: ProjectComponent, data: {title: "Gestión de proyectos"} }
-        ]
+          { path: 'project/:id', component: ProjectComponent, data: {title: "Gestión de proyectos"} }        ]
     }
 ];
 

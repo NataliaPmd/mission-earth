@@ -1,6 +1,6 @@
 interface _User {
     _id: string;
-    nombre: string;
+    name: string;
     img: string;
 }
 

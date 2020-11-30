@@ -1,1 +1,43 @@
-<p>dashboard works!</p>
+<div class="row el-element-overlay" *ngFor="let projectsCenter of projects">
+        <div *ngIf="projectsCenter.projects.length > 0" class="col-lg-8">
+            <h4 class="card-title">{{projectsCenter.center.name}}</h4>
+            <h6 class="card-subtitle m-b-20 text-muted">you can make gallery like this</h6>
+        </div>
+        
+        <div *ngIf="projectsCenter.projects.length > 0" class = "col-lg-4 text-right">
+            <a routerlink="/dashboard/project/nuevo" class="btn btn-dark" ng-reflect-router-link="/dashboard/project/nuevo" href="/dashboard/project/nuevo">
+                 Ver mas
+            </a>  
+        </div>
+
+        <div class="col-lg-3 col-md-6" *ngFor="let project of projectsCenter.projects">
+            <div class="card">
+                <div class="el-card-item pb-3">
+                    <div class="el-card-avatar mb-3 el-overlay-1 w-100 overflow-hidden position-relative text-center fixed-height"> <img [src]="project.img | image:'projects'" class="d-block position-relative w-100" alt="user">
+                        <div class="el-overlay w-100 overflow-hidden">
+                            <ul class="list-style-none el-info text-white text-uppercase d-inline-block p-0">
+                                <li><div class="heart heart{{project._id}}" (click)="favorite(project)"></div></li>
+                                <li class="score">{{project.score || 0}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="el-card-content text-center">
+                        <h4 class="mb-0">{{project.name}}</h4> <span class="text-muted">subtitle of project</span>
+                    </div>
+                </div>
+            </div>
+        </div> 
+            
+</div>
+
+
+
+<script>
+
+        
+        /*when the animation is over, remove the class*/
+        $(".heart").on('animationend', function(){
+            console.log("click2")
+        $(this).toggleClass('is_animating');
+        });
+</script>

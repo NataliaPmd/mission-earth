@@ -27,6 +27,10 @@ const UsuarioSchema = Schema({
         type: Boolean,
         default: false
     },
+    favs: {
+        type: Array
+    }
+
 });
 
 

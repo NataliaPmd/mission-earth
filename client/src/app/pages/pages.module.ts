@@ -21,7 +21,7 @@ import { CentersComponent } from './centers/centers.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProjectComponent } from './projects/project.component';
-
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { ProjectComponent } from './projects/project.component';
     CentersComponent,
     ProjectsComponent,
     ProjectComponent,
+    SearchComponent,
   ],
   exports: [
     ProgressComponent,

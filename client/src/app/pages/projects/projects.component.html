@@ -70,12 +70,12 @@
                             <tr *ngFor="let project of projects">
                                 <td class="text-center"> 
                                     <img [src]="project.img | image:'projects'" 
-                                        [alt]="project.nombre"
+                                        [alt]="project.name"
                                         class="w100 cursor"
                                         (click)="openModal(project)"> 
                                 </td>
                                 <td>
-                                    {{ project.nombre }}
+                                    {{ project.name }}
                                 </td>
 
                                 <td class="text-nowrap text-center">

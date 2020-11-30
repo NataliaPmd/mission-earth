@@ -12,7 +12,7 @@ const getTodo = async(req, res = response ) => {
 
     const [ usuarios, projects, centers ] = await Promise.all([
         Usuario.find({ nombre: regex }),
-        Project.find({ nombre: regex }),
+        Project.find({ name: regex }),
         Center.find({ name: regex }),
     ]);
 

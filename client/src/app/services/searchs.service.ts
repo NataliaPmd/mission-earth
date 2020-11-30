@@ -64,7 +64,14 @@ export class SearchsService {
   }
   private transformProject(results: any []): Project[] {
     return results.map(
-      project => new Center(project.name, project._id, project.img, project.usuario)
+      project => new Project(project.name, project._id, project.img, project.usuario)
     )
+  }
+  
+  globalSearch( termino: string ) {
+
+    const url = `${ base_url }/todo/${ termino }`;
+    return this.http.get( url, this.headers );
+
   }
 }

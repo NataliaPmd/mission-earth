@@ -40,3 +40,48 @@
 .w100 {
     width: 100px;
 }
+.w200 {
+    width:200px;
+}
+.w75 {
+    width: 75px;
+}
+.h200 {
+    height: 200px ;
+}
+.heart {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background-image:url( 'https://cssanimation.rocks/images/posts/steps/heart.png');
+    background-position: left;
+    background-repeat:no-repeat;
+    background-size:2900%;
+  }
+  
+  .heart:hover {
+    background-position:right;
+  }
+  .heart-fav {
+    background-position:right;
+  }
+  .is_animating {
+    animation: heart-burst .8s steps(28) 1;
+  }
+  
+  @keyframes heart-burst {
+    from {background-position:left;}
+    to { background-position:right;}
+  }
+
+  .fixed-height {
+      height: 180px !important;
+       /*sorry*/
+  }
+  .score {
+    margin-right: 64px !important;
+  }

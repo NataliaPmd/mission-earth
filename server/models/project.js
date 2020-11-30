@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const ProjectSchema = Schema({
-    nombre: {
+    name: {
         type: String,
         required: true
     },
@@ -18,6 +18,9 @@ const ProjectSchema = Schema({
         ref: 'Center',
         required: true
     },
+    score: {
+        type: Number
+    }
     
 });
 

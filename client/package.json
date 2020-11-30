@@ -1,5 +1,5 @@
 {
-  "name": "adminpro",
+  "name": "mission-earth",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -30,6 +30,7 @@
     "@angular/compiler-cli": "~9.1.11",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/jquery": "^3.5.4",
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
