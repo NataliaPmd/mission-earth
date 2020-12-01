@@ -51,6 +51,14 @@
                                         <option value="MODERATOR_ROLE">Moderador</option>
                                         <option value="USER_ROLE">Usuario</option>
                                     </select>
+                                    <select class="form-control" *ngIf="user.role === 'MODERATOR_ROLE'" 
+                                    [(ngModel)]="user.center" (change)="changeCenter(user)">
+                                    <option value="">Seleccione centro</option>
+                                    <option *ngFor="let center of centers"
+                                        [value]="center._id">
+                                        {{ center.name }}
+                                    </option>
+                                </select>
                                 </td>
                                 <td class>
                                     <span *ngIf="user.google" class="label label-danger">Google</span>

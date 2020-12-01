@@ -29,6 +29,9 @@ const UsuarioSchema = Schema({
     },
     favs: {
         type: Array
+    },
+    center: {
+        type: String
     }
 
 });

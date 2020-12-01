@@ -11,11 +11,13 @@ export class Project {
 
     constructor(
         public name: string,
+        public subname?: string,
         public _id?: string,
         public img?: string,
         public usuario?: _User,
         public center?: Center,
-        public score?: Number
+        public score?: Number,
+        public text?: string
     ) {}
 
 }

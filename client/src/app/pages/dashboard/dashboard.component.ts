@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
               if(this.usersService.user.favs && this.usersService.user.favs.indexOf(project_._id.toString()) !== -1){
                 setTimeout(function() {
                   $(".heart" + project_._id).addClass('heart-fav');
-                  $(".heart" + project._id).addClass('is_animating');
+                  $(".heart" + project_._id).addClass('is_animating');
                 },100);
               }
             })

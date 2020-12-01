@@ -20,9 +20,13 @@ const {
 
 const router = Router();
 
-router.get( '/', getProjects );
+router.get( '/', 
+    validarJWT,
+    getProjects );
 
-router.get('/byCenter', getProjectsByCenter);
+router.get('/byCenter', 
+    validarJWT,
+    getProjectsByCenter);
 
 router.post( '/',
     [

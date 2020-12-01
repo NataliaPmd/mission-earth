@@ -52,4 +52,9 @@ export class CenterService {
     return this.http.delete( url, this.headers );
   }
 
+  getProjects(id: string) {
+    const url = `${ base_url }/centers/${ id }/projects`;
+    return this.http.get( url, this.headers );
+  }
+
 }

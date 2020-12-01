@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuillModule } from 'ngx-quill'
 
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
@@ -22,6 +23,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProjectComponent } from './projects/project.component';
 import { SearchComponent } from './search/search.component';
+import { CenterPageComponent } from './center-page/center-page.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,8 @@ import { SearchComponent } from './search/search.component';
     ProjectsComponent,
     ProjectComponent,
     SearchComponent,
+    CenterPageComponent,
+    ProjectPageComponent,
   ],
   exports: [
     ProgressComponent,
@@ -47,6 +52,7 @@ import { SearchComponent } from './search/search.component';
     AccountSettingsComponent,
     PromisesComponent,
     RxjsComponent,
+    QuillModule
   ],
   imports: [
     CommonModule,
@@ -55,7 +61,8 @@ import { SearchComponent } from './search/search.component';
     SharedModule,
     ComponentsModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    QuillModule.forRoot()
   ]
 })
 export class PagesModule { }

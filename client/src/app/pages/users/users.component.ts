@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Center } from 'src/app/models/center.model';
 import { User } from 'src/app/models/user.model';
+import { CenterService } from 'src/app/services/center.service';
 import { SearchsService } from 'src/app/services/searchs.service';
 import { UsersService } from 'src/app/services/users.service';
 import Swal from 'sweetalert2';
@@ -16,11 +18,14 @@ export class UsersComponent implements OnInit {
   public usersTemp: User[] = [];
   public init:number = 0;
   public loading: boolean = true;
-  constructor(private userService: UsersService, private searchsService: SearchsService) { }
+  public centers: Center[] = [];
+
+  constructor(private userService: UsersService, private searchsService: SearchsService, private centerService: CenterService) { }
 
   ngOnInit(): void {
     this.chargeUsers();
-  }
+    this.loadCenters();
+  }  
 
   changePage(valor: number) { 
     this.init += valor;
@@ -88,5 +93,21 @@ export class UsersComponent implements OnInit {
     .subscribe(resp => {
       
     })
+  }
+
+  changeCenter(user: User) {
+    this.userService.saveUser(user)
+    .subscribe(resp => {
+      
+    })
+  }
+
+  loadCenters() {
+
+    this.centerService.loadCenters()
+      .subscribe( (centers: Center[]) => {
+        this.centers = centers;
+      })
+
   }
 }

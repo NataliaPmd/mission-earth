@@ -2,11 +2,19 @@ const { response } = require('express');
 
 const Project = require('../models/project');
 const Center = require('../models/center');
+const User = require('../models/usuario');
 
 
 const getProjects = async(req, res = response) => {
-
-    const projects = await Project.find()
+    console.log(req.uid);
+    const user = await User.findById(req.uid);
+    let filter = {};
+    console.log(user)
+    if(user.role === "USER_ROLE") {
+        filter = {usuario: user._id};
+    }
+    console.log(filter);
+    const projects = await Project.find(filter)
                                 .populate('usuario','nombre img')
                                 .populate('center','name img')
 
@@ -67,7 +75,6 @@ const actualizarProject = async(req, res = response) => {
             ...req.body,
             usuario: uid
         }
-
         const projectActualizado = await Project.findByIdAndUpdate( id, cambiosProject, { new: true } );
 
 

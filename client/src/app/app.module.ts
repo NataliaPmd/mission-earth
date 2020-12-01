@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { QuillModule } from 'ngx-quill'
 
 //Modules
 import { AppRoutingModule } from './app-routing.module';
@@ -19,7 +20,8 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    AuthModule
+    AuthModule,
+    QuillModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })

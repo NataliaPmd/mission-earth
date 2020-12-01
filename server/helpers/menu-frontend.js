@@ -4,13 +4,8 @@ const getMenuFrontEnd = (role = "USER_ROLE") => {
     icon: "mdi mdi-gauge",
     childMenu: [
       {title: "Inicio", url: "/"},
-      {title: "Barra de progreso", url: "progress"},
-      {title: "Promesas", url: "promises"},
-      {title: "Rxjs", url: "rxjs"},
-      {title: "Perfil de usuario", url: 'profile' }
-      
-
-
+      {title: "Top ten", url: "/top"},
+      {title: "Mi centro", url: "/center/:idCenter"},
     ]
   },
   {

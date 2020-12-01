@@ -85,3 +85,7 @@
   .score {
     margin-right: 64px !important;
   }
+
+  .cursor-pointer {
+      cursor: pointer;
+  }

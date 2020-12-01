@@ -10,7 +10,8 @@ export class User {
         public google?: boolean,
         public role?: string,
         public uid?: string,
-        public favs?: Array<string>
+        public favs?: Array<string>,
+        public center?: string
     ) {} 
     
     get imageUrl() {

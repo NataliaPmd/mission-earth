@@ -5,13 +5,13 @@
         </div>
         
         <div *ngIf="projectsCenter.projects.length > 0" class = "col-lg-4 text-right">
-            <a routerlink="/dashboard/project/nuevo" class="btn btn-dark" ng-reflect-router-link="/dashboard/project/nuevo" href="/dashboard/project/nuevo">
+            <a routerLink="center/{{projectsCenter.center._id}}" class="btn btn-dark" ng-reflect-router-link="/dashboard/project/nuevo" href="/dashboard/project/nuevo">
                  Ver mas
             </a>  
         </div>
 
         <div class="col-lg-3 col-md-6" *ngFor="let project of projectsCenter.projects">
-            <div class="card">
+            <div class="card cursor-pointer">
                 <div class="el-card-item pb-3">
                     <div class="el-card-avatar mb-3 el-overlay-1 w-100 overflow-hidden position-relative text-center fixed-height"> <img [src]="project.img | image:'projects'" class="d-block position-relative w-100" alt="user">
                         <div class="el-overlay w-100 overflow-hidden">
@@ -21,7 +21,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="el-card-content text-center">
+                    <div class="el-card-content text-center" routerLink="center/{{projectsCenter.center._id}}/{{project._id}}">
                         <h4 class="mb-0">{{project.name}}</h4> <span class="text-muted">subtitle of project</span>
                     </div>
                 </div>

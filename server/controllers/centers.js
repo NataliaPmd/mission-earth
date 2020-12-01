@@ -1,7 +1,7 @@
 const { response } = require('express');
 
 const Center = require('../models/center');
-
+const Project = require('../models/project');
 
 const getCenters = async(req, res = response) => {
 
@@ -14,6 +14,17 @@ const getCenters = async(req, res = response) => {
     })
 }
 
+const getCenterProjects = async(req, res = response) => {
+    const id = req.params.id;
+    const center = await Center.findById( id );
+    const projects = await Project.find({center: id}).sort({score: -1});
+    res.json({
+        ok: true,
+        center: center,
+        projects: projects
+    })
+}
+
 const createCenter = async(req, res = response) => {
 
     const uid = req.uid;
@@ -23,10 +34,7 @@ const createCenter = async(req, res = response) => {
     });
 
     try {
-        
         const centerDB = await center.save();
-        
-
         res.json({
             ok: true,
             center: centerDB
@@ -126,5 +134,6 @@ module.exports = {
     getCenters,
     createCenter,
     updateCenter,
-    deleteCenter
+    deleteCenter,
+    getCenterProjects
 }

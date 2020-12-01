@@ -38,6 +38,8 @@ export class ProjectComponent implements OnInit {
     this.projectForm = this.fb.group({
       name: ['', Validators.required ],
       center: ['', Validators.required ],
+      subname: ['', Validators.required ],
+      text: ['', Validators.required ],
     });
 
     this.loadCenters();
@@ -63,9 +65,9 @@ export class ProjectComponent implements OnInit {
           return this.router.navigateByUrl(`/dashboard/projects`);
         }
 
-        const { name, center:{ _id } } = project; 
+        const { name, subname, text, center:{ _id } } = project; 
         this.projectSelected = project;
-        this.projectForm.setValue({ name, center: _id });
+        this.projectForm.setValue({ name, subname, text, center:{ _id } });
       });
 
   }

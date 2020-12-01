@@ -15,6 +15,8 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectComponent } from './projects/project.component';
 import { SearchComponent } from './search/search.component';
 import { AdminGuard } from '../guards/admin.guard';
+import { CenterPageComponent } from './center-page/center-page.component';
+import { ProjectPageComponent } from './project-page/project-page.component';
 
 const routes: Routes = [
     { 
@@ -33,7 +35,10 @@ const routes: Routes = [
           { path: 'users', canActivate: [AdminGuard], component: UsersComponent, data: {title: "Gestión de usuarios"} },
           { path: 'centers', canActivate: [AdminGuard], component: CentersComponent, data: {title: "Gestión de centros"} },
           { path: 'projects', component: ProjectsComponent, data: {title: "Gestión de proyectos"} },
-          { path: 'project/:id', component: ProjectComponent, data: {title: "Gestión de proyectos"} }        ]
+          { path: 'project/:id', component: ProjectComponent, data: {title: "Gestión de proyectos"} },
+          { path: 'center/:idCenter', component: CenterPageComponent, data: {title: "Página del centro"} },
+          { path: 'center/:idCenter/:idProject', component: ProjectPageComponent, data: {title: "Página del Proyecto"} }
+        ]
     }
 ];
 

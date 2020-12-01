@@ -5,6 +5,9 @@ const ProjectSchema = Schema({
         type: String,
         required: true
     },
+    subname: {
+        type: String
+    },
     img: {
         type: String,
     },
@@ -20,6 +23,9 @@ const ProjectSchema = Schema({
     },
     score: {
         type: Number
+    },
+    text: {
+        type: String
     }
     
 });

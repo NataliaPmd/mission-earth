@@ -41,8 +41,8 @@ export class UsersService {
       }
     }).pipe(
       map((resp:any) => {
-        const {nombre, email, password, img = '', google, role, uid, favs} = resp.user;
-        this.user = new User(nombre, email, '', img, google, role, uid, favs)
+        const {nombre, email, password, img = '', google, role, uid, favs, center} = resp.user;
+        this.user = new User(nombre, email, '', img, google, role, uid, favs, center)
         localStorage.setItem('token', resp.token);
         localStorage.setItem('menu', JSON.stringify(resp.menu))
         return true;
@@ -60,7 +60,7 @@ export class UsersService {
       })
     )
   }
-  updateUser(data: {email:string, name:string, role:string}) {
+  updateUser(data: {email:string, name:string, role:string,  center: string}) {
     var data = {
       ...data,
       role: this.user.role
@@ -114,7 +114,7 @@ export class UsersService {
       .pipe(
         map(resp => {
           const users = resp.usuarios.map(
-            user => new User(user.nombre, user.email, '', user.img, user.google, user.role, user.uid)
+            user => new User(user.nombre, user.email, '', user.img, user.google, user.role, user.uid,user.favs, user.center)
           )
           return {
             total: resp.total,

@@ -12,13 +12,19 @@ const {
     getCenters,
     createCenter,
     updateCenter,
-    deleteCenter
+    deleteCenter,
+    getCenterProjects
 } = require('../controllers/centers')
 
 
 const router = Router();
 
 router.get( '/', getCenters );
+
+router.get('/:id/projects', 
+    validarJWT,
+    getCenterProjects
+);
 
 router.post( '/',
     [
