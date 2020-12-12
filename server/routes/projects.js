@@ -14,7 +14,9 @@ const {
     actualizarProject,
     borrarProject,
     getProjectById,
-    getProjectsByCenter
+    getProjectsByCenter,
+    getTopProjects,
+    getFavoriteProjects
 } = require('../controllers/projects')
 
 
@@ -27,6 +29,14 @@ router.get( '/',
 router.get('/byCenter', 
     validarJWT,
     getProjectsByCenter);
+
+router.get('/top', 
+    validarJWT,
+    getTopProjects);
+
+router.get('/favorites', 
+    validarJWT,
+    getFavoriteProjects);
 
 router.post( '/',
     [

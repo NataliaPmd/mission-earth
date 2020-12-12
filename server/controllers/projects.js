@@ -13,6 +13,9 @@ const getProjects = async(req, res = response) => {
     if(user.role === "USER_ROLE") {
         filter = {usuario: user._id};
     }
+    if(user.role === "MODERATOR_ROLE") {
+        filter = {center: user.center};
+    }
     console.log(filter);
     const projects = await Project.find(filter)
                                 .populate('usuario','nombre img')
@@ -185,6 +188,60 @@ const getFirstProjectsByCenter = async (centerId) => {
      ]);
      return projects;
 }
+const getFavoriteProjects = async (req, res = response) => {
+    try {
+        const uid = req.uid;
+        const user = await User.find({_id: uid});
+        const promises = [];
+        user[0].favs.forEach(function(id) {
+            promises.push(Project.findById(id).populate('center'));
+        })
+        Promise.all(promises).then(projects => { 
+            res.json({
+                ok: true,
+                projects
+            })          
+        });        
+    } catch {
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
+    
+}
+
+const getTopProjects = async (req, res = response) => {
+    try {
+        const projects = await Project.aggregate([
+            {$sort: {score: -1}},
+            {$limit : 10 },
+            {
+                $lookup: {
+                    from: "centers",
+                    localField: "center",
+                    foreignField: "_id",
+                    as: "center"
+                }
+            }
+         ])
+         res.json({
+            ok: true,
+            projects
+        })
+    }
+     catch (error) {
+
+        console.log(error);
+
+        res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
+}
 
 module.exports = {
     getProjects,
@@ -193,4 +250,6 @@ module.exports = {
     borrarProject,
     getProjectById,
     getProjectsByCenter,
+    getTopProjects,
+    getFavoriteProjects
 }

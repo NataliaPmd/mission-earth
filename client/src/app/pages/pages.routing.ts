@@ -17,6 +17,8 @@ import { SearchComponent } from './search/search.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { CenterPageComponent } from './center-page/center-page.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
+import { TopComponent } from './top/top.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
     { 
@@ -37,7 +39,10 @@ const routes: Routes = [
           { path: 'projects', component: ProjectsComponent, data: {title: "Gestión de proyectos"} },
           { path: 'project/:id', component: ProjectComponent, data: {title: "Gestión de proyectos"} },
           { path: 'center/:idCenter', component: CenterPageComponent, data: {title: "Página del centro"} },
-          { path: 'center/:idCenter/:idProject', component: ProjectPageComponent, data: {title: "Página del Proyecto"} }
+          { path: 'center/:idCenter/:idProject', component: ProjectPageComponent, data: {title: "Página del Proyecto"} },
+          { path: 'top', component: TopComponent, data: {title: "Top ten"} },
+          { path: 'favorites', component: FavoritesComponent, data: {title: "Favoritos"} }
+
         ]
     }
 ];

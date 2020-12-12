@@ -46,13 +46,13 @@
                                 <td>{{user.email}}</td>
                                 <td>{{user.nombre}}</td>
                                 <td>
-                                    <select class="form-control" [(ngModel)]="user.role" (change)="changeRole(user)">
+                                    <select class="form-control" [(ngModel)]="user.role" (change)="changeRole(user)" [disabled]="registerUser.role !== 'ADMIN_ROLE'">
                                         <option value="ADMIN_ROLE">Admin</option>
                                         <option value="MODERATOR_ROLE">Moderador</option>
                                         <option value="USER_ROLE">Usuario</option>
                                     </select>
-                                    <select class="form-control" *ngIf="user.role === 'MODERATOR_ROLE'" 
-                                    [(ngModel)]="user.center" (change)="changeCenter(user)">
+                                    <select class="form-control" *ngIf="user.role !== 'ADMIN_ROLE'" 
+                                    [(ngModel)]="user.center" (change)="changeCenter(user)" [disabled]="registerUser.role !== 'ADMIN_ROLE'">
                                     <option value="">Seleccione centro</option>
                                     <option *ngFor="let center of centers"
                                         [value]="center._id">

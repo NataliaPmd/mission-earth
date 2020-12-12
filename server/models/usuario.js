@@ -31,9 +31,9 @@ const UsuarioSchema = Schema({
         type: Array
     },
     center: {
-        type: String
+        type: Schema.Types.ObjectId,
+        ref: 'Center',
     }
-
 });
 
 

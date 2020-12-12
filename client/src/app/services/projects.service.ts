@@ -52,6 +52,22 @@ export class ProjectsService {
               );
   }
 
+  getTopProjects() {
+    const url = `${ base_url }/projects/top`;
+    return this.http.get( url, this.headers )
+              .pipe(
+                map( (resp: {ok: boolean, projects: any[] }) => resp.projects )
+              );
+  }
+
+  getFavoriteProjects() {
+    const url = `${ base_url }/projects/favorites`;
+    return this.http.get( url, this.headers )
+              .pipe(
+                map( (resp: {ok: boolean, projects: any[] }) => resp.projects )
+              );
+  }
+
   createProject( project: { name: string, center: string } ) {
 
     const url = `${ base_url }/projects`;

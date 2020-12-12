@@ -1,4 +1,5 @@
 import { environment } from '../../environments/environment';
+import { Center } from './center.model';
 const base_url = environment.base_url;
 
 export class User {
@@ -11,7 +12,7 @@ export class User {
         public role?: string,
         public uid?: string,
         public favs?: Array<string>,
-        public center?: string
+        public center?: Center
     ) {} 
     
     get imageUrl() {

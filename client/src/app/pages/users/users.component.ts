@@ -15,6 +15,7 @@ import Swal from 'sweetalert2';
 export class UsersComponent implements OnInit {
   public totalUsers: number=0;
   public users: User[] = [];
+  public registerUser: User;
   public usersTemp: User[] = [];
   public init:number = 0;
   public loading: boolean = true;
@@ -25,6 +26,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.chargeUsers();
     this.loadCenters();
+    this.registerUser = this.userService.user;
   }  
 
   changePage(valor: number) { 
@@ -41,6 +43,7 @@ export class UsersComponent implements OnInit {
     this.loading= true;
     this.userService.listUsers(this.init)
     .subscribe(({total, usuarios})=> {
+      console.log(usuarios)
       if(usuarios.length !== 0){
         this.users = usuarios;
         this.usersTemp = usuarios;

@@ -25,6 +25,8 @@ import { ProjectComponent } from './projects/project.component';
 import { SearchComponent } from './search/search.component';
 import { CenterPageComponent } from './center-page/center-page.component';
 import { ProjectPageComponent } from './project-page/project-page.component';
+import { TopComponent } from './top/top.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ProjectPageComponent } from './project-page/project-page.component';
     SearchComponent,
     CenterPageComponent,
     ProjectPageComponent,
+    TopComponent,
+    FavoritesComponent,
   ],
   exports: [
     ProgressComponent,

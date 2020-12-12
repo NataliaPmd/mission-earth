@@ -1,11 +1,11 @@
-const getMenuFrontEnd = (role = "USER_ROLE") => {
+const getMenuFrontEnd = (role = "USER_ROLE", centerId) => {
  const menu =  [{
     title: "Dashboard",
     icon: "mdi mdi-gauge",
     childMenu: [
       {title: "Inicio", url: "/"},
-      {title: "Top ten", url: "/top"},
-      {title: "Mi centro", url: "/center/:idCenter"},
+      {title: "Top ten", url: "top"},
+      {title: "Favoritos", url: "favorites"},
     ]
   },
   {
@@ -16,9 +16,15 @@ const getMenuFrontEnd = (role = "USER_ROLE") => {
     ]
   }
 ];
+if(role === "MODERATOR_ROLE" || role === "ADMIN_ROLE") {
+  menu[1].childMenu.unshift({title: "Usuarios", url: "users"})
+}
+
 if(role === "ADMIN_ROLE") {
     menu[1].childMenu.unshift({title: "Centros", url: "centers"})
-    menu[1].childMenu.unshift({title: "Usuarios", url: "users"})
+}
+if(centerId) {
+  menu[0].childMenu.push({title: "Mi centro", url: "center/" + centerId})
 }
 return menu;
 }

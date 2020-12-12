@@ -36,7 +36,7 @@ File: scss
     display: none; }
 
 .page-wrapper {
-  background: #f4f6f9;
+  /* background: #f4f6f9; */
   padding-bottom: 60px;
   position: relative; }
 
@@ -308,7 +308,7 @@ Notify
  Breadcrumb and page title
 *******************/
 .page-titles {
-  background: #f4f6f9;
+  /* background: #f4f6f9; */
   margin-bottom: 20px;
   padding: 0px; }
   .page-titles h3 {

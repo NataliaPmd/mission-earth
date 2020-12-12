@@ -14,7 +14,7 @@ const login = async( req, res = response ) => {
     try {
         
         // Verificar email
-        const usuarioDB = await Usuario.findOne({ email });
+        const usuarioDB = await (await Usuario.findOne({ email })).populate('center');
 
         if ( !usuarioDB ) {
             return res.status(404).json({
@@ -39,7 +39,7 @@ const login = async( req, res = response ) => {
         res.json({
             ok: true,
             token,
-            menu: getMenuFrontEnd(usuarioDB.role)
+            menu: getMenuFrontEnd(usuarioDB.role, usuarioDB.center)
         })
 
     } catch (error) {
@@ -60,7 +60,7 @@ const googleSignIn = async( req, res = response ) => {
     try {
 
         const { name, email, picture } = await googleVerify( googleToken );
-        const usuarioDB = await Usuario.findOne({ email });
+        const usuarioDB = await (await Usuario.findOne({ email })).populate('center');
         let usuario;
 
         if ( !usuarioDB ) {
@@ -87,7 +87,7 @@ const googleSignIn = async( req, res = response ) => {
         res.json({
             ok: true,
             token,
-            menu: getMenuFrontEnd(usuario.role)
+            menu: getMenuFrontEnd(usuario.role, usuario.center)
         });
 
     } catch (error) {
@@ -107,12 +107,12 @@ const renewToken = async(req, res = response) => {
 
     // Generar el TOKEN - JWT
     const token = await generarJWT( uid );
-    const user = await Usuario.findById(uid);
+    const user = await (await Usuario.findById(uid).populate('center'));
     res.json({
         ok: true,
         token,
         user,
-        menu: getMenuFrontEnd(user.role)
+        menu: getMenuFrontEnd(user.role, user.center)
     });
 
 }

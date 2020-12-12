@@ -43,6 +43,7 @@ export class UsersService {
       map((resp:any) => {
         const {nombre, email, password, img = '', google, role, uid, favs, center} = resp.user;
         this.user = new User(nombre, email, '', img, google, role, uid, favs, center)
+        console.log(this.user)
         localStorage.setItem('token', resp.token);
         localStorage.setItem('menu', JSON.stringify(resp.menu))
         return true;
