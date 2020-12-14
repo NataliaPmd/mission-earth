@@ -28,7 +28,17 @@ const initFunctions = () => {
         $(window).on("resize", set);
     
         //theme    
-        $(".sidebartoggler, .left-sidebar, .navbar-header").on({
+        $(".page-wrapper").mousemove(function(event){            
+            var relX = event.pageX - $(this).offset().left;
+            
+            if(relX < 10){
+                $("body").trigger("resize");
+                $("body").removeClass("mini-sidebar");
+                $('.navbar-brand span').show();
+                $('.logo').hide();   
+            }
+        });
+        $(".left-sidebar, .topbar").on({
             mouseenter: function () {
                 $("body").trigger("resize");
                 $("body").removeClass("mini-sidebar");

@@ -731,6 +731,7 @@ sidebar navigation
     left: 2px;
     right: auto;
     background: none;
+    display:none;
     width: 6px;
     /* If using `left`, there shouldn't be a `right`. */ }
 
@@ -855,6 +856,7 @@ When click on sidebar toggler and also for tablet
     .mini-sidebar .user-profile .profile-img .setpos {
       top: -35px; }
   .mini-sidebar.fix-sidebar .left-sidebar {
+    display:none;
     position: fixed; }
   .mini-sidebar .sidebar-nav #sidebarnav > li:hover > ul {
     height: auto !important;
@@ -946,7 +948,7 @@ When click on sidebar toggler and also for tablet
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05); }
 
 .fix-header .page-wrapper {
-  padding-top: 70px; }
+  padding-top: 0px; }
 
 .fix-header .right-side-panel {
   top: 70px;
@@ -5524,7 +5526,7 @@ File: scss
 
 @media (max-width: 1023px) {
   .page-wrapper {
-    margin-left: 70px;
+    margin-left: 0px;
     -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in; }
@@ -5573,7 +5575,7 @@ File: scss
     display: inline-block;
     line-height: 40px; }
   .mini-sidebar .page-wrapper {
-    margin-left: 70px; }
+    margin-left: 0px; }
   .flex-wrap {
     -ms-flex-wrap: nowrap !important;
     flex-wrap: nowrap !important;

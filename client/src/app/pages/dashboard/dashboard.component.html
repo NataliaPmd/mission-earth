@@ -1,10 +1,56 @@
-<div class="row el-element-overlay" *ngFor="let projectsCenter of projects">
-        <div *ngIf="projectsCenter.projects.length > 0" class="col-lg-8">
-            <h4 class="card-title">{{projectsCenter.center.name}}</h4>
-            <h6 class="card-subtitle m-b-20 text-muted">you can make gallery like this</h6>
+
+<div id="carouselExampleIndicators3" *ngIf="topProjects.length > 0" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators3" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators3" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators3" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active" routerLink="center/{{topProjects[0].center[0]._id}}/{{topProjects[0]._id}}">
+            <img class="img-responsive" [src]="topProjects[0].img | image:'projects'" alt="First slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-white">{{topProjects[0].name}}</h3>
+                <p>{{topProjects[0].subname}}</p>
+                <p>{{topProjects[0].center[0].name}}</p>
+                <p>{{topProjects[0].score}} puntos</p>
+            </div>
+        </div>
+        <div class="carousel-item" routerLink="center/{{topProjects[1].center[0]._id}}/{{topProjects[1]._id}}">
+            <img class="img-responsive" [src]="topProjects[1].img | image:'projects'" alt="Second slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-white">{{topProjects[1].name}}</h3>
+                <p>{{topProjects[1].subname}}</p>
+                <p>{{topProjects[1].center[0].name}}</p>
+                <p>{{topProjects[1].score}} puntos</p>
+
+            </div>
+        </div>
+        <div class="carousel-item" routerLink="center/{{topProjects[2].center[0]._id}}/{{topProjects[2]._id}}">
+            <img class="img-responsive" [src]="topProjects[2].img | image:'projects'" alt="Third slide">
+            <div class="carousel-caption d-none d-md-block">
+                <h3 class="text-white">{{topProjects[2].name}}</h3>
+                <p>{{topProjects[2].subname}}</p>
+                <p>{{topProjects[2].center[0].name}}</p>
+                <p>{{topProjects[2].score}} puntos</p>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators3" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row el-element-overlay space-section" *ngFor="let projectsCenter of projects">
+        <div *ngIf="projectsCenter.projects.length > 0" class="col-lg-8 space-title">
+            <h1 class="card-title">{{projectsCenter.center.name}}</h1>
         </div>
         
-        <div *ngIf="projectsCenter.projects.length > 0" class = "col-lg-4 text-right">
+        <div *ngIf="projectsCenter.projects.length > 0" class = "col-lg-4 text-right space-title">
             <a routerLink="center/{{projectsCenter.center._id}}" class="btn btn-dark" ng-reflect-router-link="/dashboard/project/nuevo" href="/dashboard/project/nuevo">
                  Ver mas
             </a>  
@@ -22,7 +68,7 @@
                         </div>
                     </div>
                     <div class="el-card-content text-center" routerLink="center/{{projectsCenter.center._id}}/{{project._id}}">
-                        <h4 class="mb-0">{{project.name}}</h4> <span class="text-muted">subtitle of project</span>
+                        <h4 class="mb-0">{{project.name}}</h4> <span class="text-muted">{{project.subname}}</span>
                     </div>
                 </div>
             </div>

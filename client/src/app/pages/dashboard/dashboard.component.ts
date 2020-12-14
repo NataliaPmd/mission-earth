@@ -14,12 +14,22 @@ declare var $: any;
 export class DashboardComponent implements OnInit {
   public loading: boolean = true;
   public projects: any;
+  public topProjects = [];
   public user: User;
 
   constructor(private projectService: ProjectsService, public usersService: UsersService) { }
 
   ngOnInit(): void {
+    this.loadTopProjects();
     this.loadProjectsByCenter();
+  }
+
+  loadTopProjects() {
+    this.projectService.getTopProjects()
+      .subscribe( projects => {
+        this.topProjects = projects;
+        console.log(this.topProjects)
+      });
   }
 
   loadProjectsByCenter() {

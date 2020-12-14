@@ -216,4 +216,28 @@
     margin-left: 15px;
     vertical-align: middle;
   }
+
+  .carousel-item {
+    height: 600px;
+    cursor:pointer;
+  }
+
+  .carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .space-section{
+    margin-top: 60px;
+  }
+  .space-section-bottom{
+    margin-bottom: 60px;
+  }
+
+  .space-title {
+    margin-bottom: 20px;
+  }
+
+  .card {
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1) !important; 
+  }
   

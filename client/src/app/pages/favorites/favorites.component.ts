@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from 'src/app/models/project.model';
 import { ProjectsService } from 'src/app/services/projects.service';
 import { UsersService } from 'src/app/services/users.service';
+declare var $: any;
+
 
 @Component({
   selector: 'app-favorites',

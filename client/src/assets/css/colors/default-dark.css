@@ -23,7 +23,7 @@ File: scss
   .topbar .top-navbar .navbar-header .navbar-brand .light-logo {
     display: none; }
   .topbar .top-navbar .navbar-nav > .nav-item > span {
-    color: #398bf7; }
+    color: #1ece6d;}
   .topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
     color: #a6b7bf; }
     .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
@@ -46,13 +46,13 @@ File: scss
 /*General Elements
 *******************/
 a {
-  color: #398bf7; }
+  color:#1ece6d; }
 
 a.link:hover, a.link:focus {
-  color: #398bf7 !important; }
+  color: #1ece6d !important; }
 
 .bg-theme {
-  background-color: #398bf7 !important; }
+  background-color: #1ece6d  !important; }
 
 .pagination > .active > a,
 .pagination > .active > span,
@@ -60,44 +60,44 @@ a.link:hover, a.link:focus {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #398bf7;
-  border-color: #398bf7; }
+  background-color: #1ece6d;
+  border-color: #1ece6d; }
 
 .right-sidebar .rpanel-title {
-  background: #398bf7; }
+  background: #1ece6d; }
 
 .stylish-table tbody tr:hover, .stylish-table tbody tr.active {
-  border-left: 4px solid #398bf7; }
+  border-left: 4px solid #1ece6d; }
 
 .text-themecolor {
-  color: #398bf7 !important; }
+  color: #1ece6d !important; }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
-  border-bottom: 2px solid #398bf7;
-  color: #398bf7; }
+  border-bottom: 2px solid #1ece6d;
+  color: #1ece6d; }
 
 .profile-tab li a.nav-link:hover,
 .customtab li a.nav-link:hover {
-  color: #398bf7; }
+  color:#1ece6d;}
 
 /*******************
 /*Buttons
 *******************/
 .btn-themecolor,
 .btn-themecolor.disabled {
-  background: #398bf7;
+  background: #1ece6d;
   color: #ffffff;
-  border: 1px solid #398bf7; }
+  border: 1px solid #1ece6d; }
   .btn-themecolor:hover,
   .btn-themecolor.disabled:hover {
-    background: #398bf7;
+    background: #1ece6d;
     opacity: 0.7;
-    border: 1px solid #398bf7; }
+    border: 1px solid #1ece6d; }
   .btn-themecolor.active, .btn-themecolor:focus,
   .btn-themecolor.disabled.active,
   .btn-themecolor.disabled:focus {
-    background: #028ee1; }
+    background: #1ece6d;; }
 
 /*******************
 /*sidebar navigation
@@ -123,11 +123,11 @@ a.link:hover, a.link:focus {
   background: #1c2128; }
 
 .label-themecolor {
-  background: #398bf7; }
+  background: #1ece6d; }
 
 .sidebar-nav > ul > li.active > a {
   color: #ffffff;
-  border-color: #398bf7; }
+  border-color: #1ece6d; }
   .sidebar-nav > ul > li.active > a i {
     color: #ffffff; }
 
