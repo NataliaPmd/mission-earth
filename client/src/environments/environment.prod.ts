@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  base_url: "https://mission-earth-test.netlify.app/api"
+  base_url: "https://mission-earth-final.herokuapp.com"
 };
