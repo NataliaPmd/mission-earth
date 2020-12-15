@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  base_url: "http://mission-earth.com/api"
+  base_url: "mission-earth-test.netlify.app/api"
 };
