@@ -39,7 +39,7 @@ const login = async( req, res = response ) => {
         res.json({
             ok: true,
             token,
-            menu: getMenuFrontEnd(usuarioDB.role, usuarioDB.center)
+            menu: getMenuFrontEnd(usuarioDB.role, usuarioDB.center._id)
         })
 
     } catch (error) {
@@ -87,7 +87,7 @@ const googleSignIn = async( req, res = response ) => {
         res.json({
             ok: true,
             token,
-            menu: getMenuFrontEnd(usuario.role, usuario.center)
+            menu: getMenuFrontEnd(usuario.role, usuario.center._id)
         });
 
     } catch (error) {
@@ -112,7 +112,7 @@ const renewToken = async(req, res = response) => {
         ok: true,
         token,
         user,
-        menu: getMenuFrontEnd(user.role, user.center)
+        menu: getMenuFrontEnd(user.role, user.center._id)
     });
 
 }
